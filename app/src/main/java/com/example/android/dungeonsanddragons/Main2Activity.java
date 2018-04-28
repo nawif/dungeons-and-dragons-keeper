@@ -11,11 +11,15 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +41,47 @@ public class Main2Activity extends AppCompatActivity {
     @BindView(R.id.save2) Button savebtn;
     @BindView(R.id.reset2) Button reset;
     @BindView(R.id.gotoA) Button nextAct;
+    public void fillSpinners(){
+        /*
+            Armor
+         */
+        ArrayList<String> armor=new ArrayList<>();
+        armor.add("xxxx");
+        armor.add("xxxx");
+        armor.add("xxxx");
+        armor.add("xxxx");
+        armor.add("xxxx");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, armor);
+        Armor.setAdapter(dataAdapter);
+
+        ArrayList<String> weapon=new ArrayList<>();
+        weapon.add("yyyy");
+        weapon.add("yyyy");
+        weapon.add("yyyy");
+        weapon.add("yyyy");
+        weapon.add("yyyy");
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, weapon);
+        Weapon.setAdapter(dataAdapter2);
+
+        ArrayList<String> tools=new ArrayList<>();
+        tools.add("zzzz");
+        tools.add("zzzz");
+        tools.add("zzzz");
+        tools.add("zzzz");
+        tools.add("zzzz");
+        ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, tools);
+        Tool.setAdapter(dataAdapter3);
+
+        ArrayList<String> langugues=new ArrayList<>();
+        langugues.add("wwww");
+        langugues.add("wwww");
+        langugues.add("wwww");
+        langugues.add("wwww");
+        langugues.add("wwww");
+        ArrayAdapter<String> dataAdapter4 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, langugues);
+        Language.setAdapter(dataAdapter4);
+
+    }
 
     public DaD getValues(){
         DaD dad=new DaD();
@@ -86,6 +131,7 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         ButterKnife.bind(this);
+        fillSpinners();
         context=this;
         mPrefs = getPreferences(MODE_PRIVATE);
         Gson gson = new Gson();
